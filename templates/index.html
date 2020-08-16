@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>TG Identification Model</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <select name="device" id="device" required="required" class="form-control">
+          <option >Select Device</option>
+          <option value="0">Android</option>
+          <option value="1">Web</option>
+        </select>
+
+        <select name="Device Language" id="device language" required="required" class="form-control">
+            <option >Select Device Language</option>
+            <option value="0">bn</option>
+            <option value="1">en</option>
+            <option value="1">hi</option>
+
+            </select>
+
+          <select name="Login Language" id="login language" required="required" class="form-control">
+            <option >Select Device Language</option>
+            <option value="0">bn</option>
+            <option value="1">en</option>
+            <option value="2">hi</option>
+
+          </select>
+
+        <select name="SdkMerchant" id="sdkmerchant" required="required" class="form-control">
+            <option >Select your SDK Merchant</option>
+            <option value="0">new_niki</option>
+            <option value="1">niki</option>
+            <option value="2">other</option>
+
+          </select>
+
+        <select name="language" id="language" required="required" class="form-control">
+            <option >Select your language</option>
+            <option value="0">bn</option>
+            <option value="1">en</option>
+            <option value="2">hi</option>
+
+        </select>
+
+         <select name="installLanguage" id="installLanguage" required="required" class="form-control">
+            <option >Select your app install language</option>
+            <option value="0">bn</option>
+            <option value="1">en</option>
+            <option value="2">hi</option>
+
+        </select>
+
+<!--    	<input type="text" name="experience" placeholder="Experience" required="required" />-->
+        <input type="text" name="Promocode attempt count" placeholder="enter the promocode attempt count" required="required" />
+
+        <select name="last_state" id="last_state" required="required" class="form-control">
+            <option >Select your last state</option>
+            <option value="0">Andhra Pradesh</option>
+            <option value="1">Bihar</option>
+            <option value="2">Chhattisgarh</option>
+            <option value="3">Delhi</option>
+            <option value="4">Gujarat</option>
+            <option value="5">Haryana</option>
+            <option value="6">jharkhand</option>
+            <option value="7">karnataka</option>
+            <option value="8">MP</option>
+            <option value="9">Maharastra</option>
+            <option value="10">Odisha</option>
+            <option value="11">Punjab</option>
+            <option value="12">Rajasthan</option>
+            <option value="13">TN</option>
+            <option value="14">Telengana</option>
+            <option value="15">UP</option>
+            <option value="16">WB</option>
+        </select>
+
+
+
+        <input type="text" name="tier" placeholder="tier" required="required" />
+
+         <select name="last_locality" id="last_locality" required="required" class="form-control">
+            <option >Select your last locality</option>
+            <option value="0">Aadarsh Nagar</option>
+            <option value="1">Aavalahalli</option>
+
+        </select>
+
+          <select name="last_city" id="last_city" required="required" class="form-control">
+            <option >Select your last city</option>
+            <option value="0">Agra</option>
+            <option value="1">Ahembadabad</option>
+
+        </select>
+
+        <input type="text" name="percentage" placeholder="percentage" required="required" />
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
