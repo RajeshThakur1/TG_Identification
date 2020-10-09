@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body style="background-color: #e2dbdb">
+<div class="container ">
+ <div class="box">
+        <div class="row" >
+          <div class="col-md-6" style="padding:5px;">
+	            <h3 style="color:blue">TG Identification Model</h3>
+          </div>
+          <div class="col-md-4" style="padding:5px;">
+          </div>
+        <div class="col-md-2" style="padding:5px;">
+	            <h3 style="color:blue">PyBron</h3>
+              <p style="color:green">Contact Us:-8319911964</p>
+          </div>
+        </div>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <div class="row" >
+          <div class="col-md-6" style="padding:10px;">
+            <select name="device" id="device" required="required" class="form-control">
+              <option >Select credit.policy</option>
+              <option value="0">"0"</option>
+              <option value="1">"1"</option>
+            </select>
+          </div>
+
+
+          <div class="col-md-6" style="padding:10px;">
+            <select name="Device Language" id="device language" required="required" class="form-control">
+              <option >Select purpose</option>
+              <option value="2">debt_consolidation</option>
+              <option value="0">all_other</option>
+              <option value="1">credit_card</option>
+              <option value="4">home_improvement</option>
+              <option value="5">small_business</option>
+              <option value="4">major_purchase</option>
+              <option value="3">educational</option>
+
+              </select>
+            </div>
+
+          <div class="col-md-6" style="padding:10px;">
+            <input type="text" name="int.rate" class="form-control" placeholder="Enter rate of intrest" required="required" />
+          </div>
+          <div class="col-md-6" style="padding:10px;">
+          <input type="text" name="installment" class="form-control" placeholder="Enter monthly instalment" required="required" />
+          </div>
+          <div class="col-md-6" style="padding:10px;">
+          <input type="text" name="log.annual.inc" class="form-control" placeholder="Enter annual income" required="required" />
+          </div>
+          <div class="col-md-6" style="padding:10px;">
+          <input type="text" name="dti" class="form-control" placeholder="Enter dti value" required="required" />
+          </div>
+          <div class="col-md-6" style="padding:10px;">
+          <input type="text" name="fico" class="form-control" placeholder="Enter fico" required="required" />
+          </div>
+          <div class="col-md-6" style="padding:10px;">
+          <input type="text" name="days.with.cr.line" class="form-control" placeholder="Enter days.with.cr.line" required="required" />
+          </div>
+          <div class="col-md-6" style="padding:10px;">
+          <input type="text" name="revol.bal" class="form-control" placeholder="Enter revol.bal" required="required" />
+          </div>
+          <div class="col-md-6" style="padding:10px;">
+          <input type="text" name="revol.util" class="form-control" placeholder="Enter revol.util" required="required" />
+          </div>
+          <div class="col-md-6" style="padding:10px;">
+          <input type="text" name="inq.last.6mths" class="form-control" placeholder="Enter inq.last.6mths" required="required" />
+          </div>
+          <div class="col-md-6" style="padding:10px;">
+          <input type="text" name="delinq.2yrs" class="form-control" placeholder="Enter delinq.2yrs" required="required" />
+          </div>
+          <div class="col-md-6" style="padding:10px;">
+          <input type="text" name="pub.rec" class="form-control" placeholder="Enter pub.rec" required="required" />
+          </div>
+
+          <div class="col-md-2" style="padding:10px;">
+          <button type="submit" class="btn btn-primary btn-block btn-large">Click For Predict</button>
+          </div>
+        </div>
+    </form>
+
+
+   <br>
+   <br>
+   {% if prediction_text==1 %}
+   <div class="card" style="padding:10px;">
+   <h4 align="center" style="color:green">Outputs</h4>
+   {{ prediction_text }}
+   </div>
+   {% else %}
+   <div class="card" style="padding:10px;">
+   <h4 align="center" style="color:red">Outputs</h4>
+   {{ prediction_text }}
+   </div>
+   {% endif %}
+
+ </div>
+</div>
+
+</body>
+</html>
