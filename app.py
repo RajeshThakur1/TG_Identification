@@ -5,7 +5,7 @@ import pickle
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
 prediction = model.predict([[1,0,0.1189,829.10,11.350407,19.48,737,5639.958333,28854,52.1,0,0,0]])
-print(prediction)
+#print(prediction)
 @app.route('/')
 def home():
     return render_template('index.html')
